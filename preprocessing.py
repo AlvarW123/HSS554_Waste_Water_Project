@@ -20,10 +20,6 @@ u_df.dropna(inplace = True)
 l_df.dropna(inplace = True)
 a_df.dropna(inplace = True)
 
-print(u_df.describe())
-print(l_df.describe())
-print(a_df.describe())
-
 #Divide the data per lane for uster.
 
 col_1 =[col for col in u_df.columns if '_SB1' in col]
@@ -69,10 +65,6 @@ col_2 =[col for col in a_df.columns if '_2 ' in col]
 col_2.insert(0,"Time []")
 col_2.insert(1,"Temperature [C]")
 a_df_2 = a_df[col_2]
-print("modified")
-print(u_df_1.describe())
-print(l_df_1.describe())
-print(a_df_1.describe())
 
 u_check = (u_df_1.shape == u_df_2.shape) & (u_df_1.shape == u_df_3.shape) & (u_df_1.shape == u_df_4.shape) & (u_df_1.shape == u_df_5.shape) & (u_df_1.shape == u_df_6.shape)
 l_check = l_df_1.shape == l_df_2.shape 
@@ -82,12 +74,14 @@ print(u_check)
 print(l_check)
 print(a_check)
 
-print(l_df_1.columns)
-print(l_df_2.columns)
-
 l_df_1 = l_df_1[l_df_1.columns.drop(['F_N2O_post_1 [gN2O-N/h]','O2post_1 [gO_2/m^3]'])]
 l_check = l_df_1.shape == l_df_2.shape 
 print(l_check)
+
+print("modified")
+print(u_df_1.describe())
+print(l_df_1.describe())
+print(a_df_1.describe())
 
 u_df_1.to_csv("data/modified/uster_1.csv")
 u_df_2.to_csv("data/modified/uster_2.csv")
