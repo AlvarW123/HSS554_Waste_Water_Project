@@ -17,7 +17,7 @@ c = ["inflow [l/s]","NO2 [gN/m3]", "O2 [gO2/m3]", "Time []", "NH4 [gN/m3]", "N20
 u_df_1_mod = u_df_1.rename(columns = {"inflow_SB1 [l/s]" : "inflow [l/s]", "NO2_SB1 [gN/m3]": "NO2 [gN/m3]" , "DO_SB1 [gO2/l]" : "O2 [gO2/m3]",
                                        "Time [-]":"Time []"                                      ,"N2O_SB1 [kgN/h]": "N20 [gN/h]",
                                       "NH4_SB1 [gN/m3]":"NH4 [gN/m3]"})
-u_df_1_mod["O2 [gO2/m3]"] = u_df_1_mod["O2 [gO2/m3]"]*1000
+#u_df_1_mod["O2 [gO2/m3]"] = u_df_1_mod["O2 [gO2/m3]"]*1000
 u_df_1_mod["N20 [gN/h]"] = u_df_1_mod["N20 [gN/h]"]*1000
 u_df_1_mod["Time []"] = pd.to_datetime(u_df_1_mod["Time []"])
 u_df_1_mod = u_df_1_mod[c]
@@ -25,7 +25,7 @@ u_df_1_mod = u_df_1_mod[c]
 u_df_2_mod = u_df_2.rename(columns = {"inflow_SB2 [l/s]" : "inflow [l/s]", "NO2_SB2 [gN/m3]": "NO2 [gN/m3]" , "DO_SB2 [gO2/l]" : "O2 [gO2/m3]","Time [-]":"Time []"   
                                                                          ,"N2O_SB2 [kgN/h]": "N20 [gN/h]",
                                       "NH4_SB2 [gN/m3]":"NH4 [gN/m3]"})
-u_df_2_mod["O2 [gO2/m3]"] = u_df_2_mod["O2 [gO2/m3]"]*1000
+#u_df_2_mod["O2 [gO2/m3]"] = u_df_2_mod["O2 [gO2/m3]"]*1000
 u_df_2_mod["N20 [gN/h]"] = u_df_2_mod["N20 [gN/h]"]*1000
 u_df_2_mod["Time []"] = pd.to_datetime(u_df_2_mod["Time []"])
 u_df_2_mod = u_df_2_mod[c]
@@ -33,7 +33,7 @@ u_df_2_mod = u_df_2_mod[c]
 u_df_3_mod = u_df_3.rename(columns = {"inflow_SB3 [l/s]" : "inflow [l/s]", "NO2_SB3 [gN/m3]": "NO2 [gN/m3]" , "DO_SB3 [gO2/l]" : "O2 [gO2/m3]","Time [-]":"Time []"                                     
                                        ,"N2O_SB3 [kgN/h]": "N20 [gN/h]",
                                       "NH4_SB3 [gN/m3]":"NH4 [gN/m3]"})
-u_df_3_mod["O2 [gO2/m3]"] = u_df_3_mod["O2 [gO2/m3]"]*1000
+#u_df_3_mod["O2 [gO2/m3]"] = u_df_3_mod["O2 [gO2/m3]"]*1000
 u_df_3_mod["N20 [gN/h]"] = u_df_3_mod["N20 [gN/h]"]*1000
 u_df_3_mod["Time []"] = pd.to_datetime(u_df_3_mod["Time []"])
 u_df_3_mod = u_df_3_mod[c]
@@ -41,7 +41,7 @@ u_df_3_mod = u_df_3_mod[c]
 u_df_4_mod = u_df_4.rename(columns = {"inflow_SB4 [l/s]" : "inflow [l/s]", "NO2_SB4 [gN/m3]": "NO2 [gN/m3]" 
                                       , "DO_SB4 [gO2/l]" : "O2 [gO2/m3]","Time [-]":"Time []"                                      ,"N2O_SB4 [kgN/h]": "N20 [gN/h]",
                                       "NH4_SB4 [gN/m3]":"NH4 [gN/m3]"})
-u_df_4_mod["O2 [gO2/m3]"] = u_df_4_mod["O2 [gO2/m3]"]*1000
+#u_df_4_mod["O2 [gO2/m3]"] = u_df_4_mod["O2 [gO2/m3]"]*1000
 u_df_4_mod["N20 [gN/h]"] = u_df_4_mod["N20 [gN/h]"]*1000
 u_df_4_mod["Time []"] = pd.to_datetime(u_df_4_mod["Time []"])
 u_df_4_mod = u_df_4_mod[c]
@@ -49,7 +49,7 @@ u_df_4_mod = u_df_4_mod[c]
 u_df_5_mod = u_df_5.rename(columns = {"inflow_SB5 [l/s]" : "inflow [l/s]", "NO2_SB5 [gN/m3]": "NO2 [gN/m3]" ,
                                        "DO_SB5 [gO2/l]" : "O2 [gO2/m3]","Time [-]":"Time []", "N2O_SB5 [kgN/h]": "N20 [gN/h]",
                                       "NH4_SB5 [gN/m3]":"NH4 [gN/m3]"})
-u_df_5_mod["O2 [gO2/m3]"] = u_df_5_mod["O2 [gO2/m3]"]*1000
+#u_df_5_mod["O2 [gO2/m3]"] = u_df_5_mod["O2 [gO2/m3]"]*1000
 u_df_5_mod["N20 [gN/h]"] = u_df_5_mod["N20 [gN/h]"]*1000
 u_df_5_mod["Time []"] = pd.to_datetime(u_df_5_mod["Time []"])
 u_df_5_mod = u_df_5_mod[c]
@@ -59,7 +59,7 @@ u_df_6_mod = u_df_6.rename(columns = {"inflow_SB6 [l/s]" : "inflow [l/s]",
                                       "Time [-]":"Time []"
                                       ,"N2O_SB6 [kgN/h]": "N20 [gN/h]",
                                       "NH4_SB6 [gN/m3]":"NH4 [gN/m3]"})
-u_df_6_mod["O2 [gO2/m3]"] = u_df_6_mod["O2 [gO2/m3]"]*1000
+#u_df_6_mod["O2 [gO2/m3]"] = u_df_6_mod["O2 [gO2/m3]"]*1000
 u_df_6_mod["Time []"] = pd.to_datetime(u_df_6_mod["Time []"])
 u_df_6_mod["N20 [gN/h]"] = u_df_6_mod["N20 [gN/h]"]*1000
 u_df_6_mod = u_df_6_mod[c]

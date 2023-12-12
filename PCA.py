@@ -14,65 +14,45 @@ def preform_pca(df,col = [],n = 2):
     scaler = StandardScaler()
     df_scaled = scaler.fit_transform(df_in_use)
     pca = PCA(n_components=n)
-    principal_components = pca.fit_transform(df_scaled)
-    return principal_components
+    pca.fit(df_scaled)
+    return pca
 
 ## Perform pca
 
-# for non weather
+dfs = []
 
-## Check result using plot
-for i in range(1,9):
-    name = ""
-    if(i < 7):
-        name = "uster_" + str(i)
-        df = pd.read_csv("data/with_selected_variables/uster_"+(str(i))+".csv")
-    else:
-        name = "lucerne_" + str(i-6)
-        df = pd.read_csv("data/with_selected_variables/lucerne_"+(str(i-6))+".csv")
+# get encoding for dataframe
+with open('data/added_error/uster_1.csv') as f:
+    encoding = f.encoding
+
+for i in range(1,7):
+    dfs.append(pd.read_csv("data/modified_uster/uster_"+str(i)+".csv", encoding = encoding))
 
 
-    df = df.drop("Time []", axis = 1)
-
-    principal_components = preform_pca(df = df,col = range(0,5))
-    plt.cla()
-    plt.scatter(principal_components[:, 0], principal_components[:, 1])
-    plt.xlabel('Principal Component 1')
-    plt.ylabel('Principal Component 2')
-    plt.savefig("figures/pca_plot_"+name)
-
-    ## Plot as time series to look for trends, possible issue with 0 values. Likely due to repairs etc, we are going to treat thoose days as nan
-
-    plt.cla()
+#for i in range(1,8):
+ #   df["d"+str(i)] = np.zeros(df.shape[0])
+  #  df["d"+str(i)] = (df["Day"] == i)*1
+   # days.append("d"+str(i))
 
 
-for j in np.linspace(1,7,num=4,dtype=int):
-    name = ""
-    if(j < 7):
-        name = "uster_" + str(j)
-        df_1 = pd.read_csv("data/with_selected_variables/uster_"+(str(j))+".csv")
-    else:
-        name = "lucerne_" + str(j-6)
-        df_1 = pd.read_csv("data/with_selected_variables/lucerne_"+(str(j-6))+".csv")
+#for i in range(0,24):
+ #   df["h"+str(i)] = np.zeros(df.shape[0])
+  #  df["h"+str(i)] = (df["Hour"] == i)*1
+   # hours.append("h"+str(i))
+# test_df = dfs.pop()
+# train_df = pd.concat(dfs)
+df = pd.concat(dfs)
 
-    if(j+1 < 7):
-        name = name + " combined_with_uster_" + str(j+1)
-        df_2 = pd.read_csv("data/with_selected_variables/uster_"+(str(j))+".csv")
-    else:
-        name = name + " combined_with_lucerne_" + str(j-5)
-        df_2 = pd.read_csv("data/with_selected_variables/lucerne_"+(str(j-5))+".csv")
+df["Month"] = pd.to_datetime(df["Time [-]"],dayfirst=True).apply(lambda x: x.month)
+df["Day"] = pd.to_datetime(df["Time [-]"],dayfirst=True).apply(lambda x: x.day)
+df["Hour"] = pd.to_datetime(df["Time [-]"],dayfirst=True).apply(lambda x: x.hour)
 
-    df_1 = df_1.drop("Time []", axis = 1)
-    df_2 = df_2.drop("Time []",axis = 1)
-    df = pd.concat([df_1,df_2],axis = 1)
-    principal_components = preform_pca(df = df,col = range(0,10))
-    plt.cla()
-    plt.scatter(principal_components[:, 0], principal_components[:, 1])
-    plt.xlabel('Principal Component 1')
-    plt.ylabel('Principal Component 2')
-    plt.savefig("figures/pca_plot_"+name)
+   
 
-    ## Plot as time series to look for trends, possible issue with 0 values. Likely due to repairs etc, we are going to treat thoose days as nan
 
-    plt.cla()
+df.drop(["Unnamed: 0"], axis = 1,inplace = True)
 
+df.drop(["Time [-]","tank_nr","N2O [kgN/h]"] ,axis = 1,inplace = True)
+pca = preform_pca(df,n=None)
+print(pca.components_)
+print(pca.explained_variance_ratio_)

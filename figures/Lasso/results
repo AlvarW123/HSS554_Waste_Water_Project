@@ -1,0 +1,7 @@
+Best Parameters: {'alpha': 0.001}
+r2: 0.22016013265566148
+mean absolute error: 0.2606290872210423
+Root of mean squared error: 0.5210921193282281
+r2_train: 0.22283733500821645
+mean absolute error_train: 0.25735623427977816
+Root of mean squared error_train: 0.5382093680008742

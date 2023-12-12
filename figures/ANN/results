@@ -1,0 +1,7 @@
+r2: 0.5668963044653048
+mean absolute error: 0.11958217010047842
+Root of mean squared error: 0.38833607172400936
+
+r2_train: 0.6605816717810964
+mean absolute error_train: 0.11059046528164654
+Root of mean squared error_train: 0.3556828566280717
